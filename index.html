@@ -63,8 +63,6 @@
             font-weight: 700;
             letter-spacing: 0.05em;
             margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
         }
         
         header h2 {
@@ -73,9 +71,16 @@
             font-weight: 300;
             letter-spacing: 0.3em;
             text-transform: uppercase;
-            position: relative;
-            z-index: 1;
             color: var(--coral-pink);
+            margin-bottom: 1.5rem;
+        }
+        
+        .header-tagline {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.95;
+            line-height: 1.8;
         }
         
         /* Navigation */
@@ -87,6 +92,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            backdrop-filter: blur(10px);
         }
         
         nav a {
@@ -94,74 +100,286 @@
             color: var(--burgundy);
             text-decoration: none;
             font-weight: 500;
-            font-size: 1rem;
+            font-size: 0.95rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             display: inline-block;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
         }
         
         nav a:hover {
             color: var(--terra);
+            border-bottom-color: var(--terra);
         }
         
-        /* About Section with Image Grid */
+        /* About Section */
         #about {
-            background: linear-gradient(to bottom, var(--light-cream) 0%, var(--coral-pink) 100%);
-            padding: 4rem 2rem;
+            background: linear-gradient(to bottom, var(--light-cream) 0%, rgba(229, 196, 181, 0.3) 100%);
+            padding: 5rem 2rem;
         }
         
         .about-container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
+            text-align: center;
         }
         
-        .about-text h3 {
+        .about-container h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: var(--burgundy);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
         
-        .about-text h3 em {
+        .about-container h3 em {
             font-style: italic;
-            display: block;
-            font-size: 3.5rem;
+            color: var(--terra);
+        }
+        
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .about-text p {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
             color: var(--text-dark);
+            line-height: 1.9;
         }
         
-        .image-grid {
+        .about-text p strong {
+            color: var(--burgundy);
+            font-weight: 600;
+        }
+        
+        /* Gallery Section */
+        #gallery {
+            background: var(--light-cream);
+            padding: 5rem 2rem;
+        }
+        
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .gallery-container h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--burgundy);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .gallery-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .gallery-tab {
+            padding: 0.75rem 2rem;
+            background: white;
+            border: 2px solid var(--terra);
+            color: var(--burgundy);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .gallery-tab:hover {
+            background: var(--terra);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .gallery-tab.active {
+            background: var(--burgundy);
+            border-color: var(--burgundy);
+            color: white;
+        }
+        
+        .gallery-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
         
-        .image-grid img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            aspect-ratio: 1;
         }
         
-        .image-grid img:hover {
-            transform: scale(1.05);
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+            padding: 1.5rem;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-item-overlay p {
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+            animation: zoomIn 0.3s ease;
+        }
+        
+        @keyframes zoomIn {
+            from { transform: scale(0.8); }
+            to { transform: scale(1); }
+        }
+        
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: white;
+            color: var(--burgundy);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .lightbox-close:hover {
+            background: var(--terra);
+            color: white;
+            transform: rotate(90deg);
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            color: var(--burgundy);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .lightbox-nav:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .lightbox-prev {
+            left: 20px;
+        }
+        
+        .lightbox-next {
+            right: 20px;
+        }
+        
+        .lightbox-caption {
+            position: absolute;
+            bottom: -60px;
+            left: 0;
+            right: 0;
+            color: white;
+            text-align: center;
+            font-size: 1rem;
+            padding: 1rem;
         }
         
         /* Portfolio Section */
         #portfolio {
-            background: var(--sage);
-            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--sage) 0%, rgba(181, 197, 173, 0.7) 100%);
+            padding: 5rem 2rem;
         }
         
         .portfolio-container {
@@ -171,77 +389,118 @@
         
         .portfolio-container h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: var(--burgundy);
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
         
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
         }
         
         .portfolio-item {
             background: white;
-            border-radius: 12px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: all 0.4s ease;
         }
         
         .portfolio-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
         }
         
         .portfolio-item img {
             width: 100%;
-            height: 250px;
+            height: 280px;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.08);
         }
         
         .portfolio-caption {
-            padding: 1rem;
+            padding: 1.5rem;
             text-align: center;
-            font-weight: 500;
+        }
+        
+        .portfolio-caption h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
             color: var(--burgundy);
+            margin-bottom: 0.5rem;
+        }
+        
+        .portfolio-caption p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
         }
         
         /* Experience Section */
         #experience {
             background: var(--light-cream);
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
         }
         
         .experience-container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
         }
         
         .experience-container h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: var(--burgundy);
-            margin-bottom: 2rem;
-            border-bottom: 3px solid var(--terra);
-            padding-bottom: 0.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .experience-container h3::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--terra);
+            margin: 1rem auto 0;
+            border-radius: 2px;
         }
         
         .job {
             margin-bottom: 2.5rem;
-            padding: 1.5rem;
+            padding: 2rem;
             background: white;
-            border-radius: 12px;
-            border-left: 4px solid var(--terra);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 15px;
+            border-left: 5px solid var(--terra);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .job:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
         }
         
         .job h4 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: var(--burgundy);
             margin-bottom: 0.5rem;
+        }
+        
+        .job-date {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
         }
         
         .job ul {
@@ -250,9 +509,10 @@
         }
         
         .job li {
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
+            padding-left: 1.8rem;
+            margin-bottom: 0.8rem;
             position: relative;
+            line-height: 1.7;
         }
         
         .job li::before {
@@ -261,55 +521,72 @@
             left: 0;
             color: var(--terra);
             font-weight: bold;
+            font-size: 1.2rem;
         }
         
         /* Tools Section */
         #tools {
             background: linear-gradient(135deg, var(--burgundy) 0%, var(--dark-burgundy) 100%);
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
             color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #tools::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="dots2" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots2)"/></svg>');
+            opacity: 0.5;
         }
         
         .tools-container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
         
         .tools-container h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 3rem;
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             color: var(--cream);
         }
         
         .tools-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.2rem;
         }
         
         .tool-badge {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1rem;
-            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 1.2rem;
+            border-radius: 12px;
             text-align: center;
             font-weight: 500;
             letter-spacing: 0.05em;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
         }
         
         .tool-badge:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
         
         /* Contact Section */
         #contact {
-            background: var(--rose-pink);
-            padding: 4rem 2rem;
+            background: linear-gradient(to bottom, var(--rose-pink) 0%, var(--coral-pink) 100%);
+            padding: 5rem 2rem;
         }
         
         .contact-container {
@@ -317,32 +594,38 @@
             margin: 0 auto;
             text-align: center;
             background: white;
-            padding: 3rem;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 3.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
         }
         
         .contact-container h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: var(--burgundy);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
         
         .contact-info {
             font-size: 1.1rem;
-            line-height: 2;
+            line-height: 2.2;
+        }
+        
+        .contact-info p {
+            margin: 1rem 0;
         }
         
         .contact-info a {
             color: var(--terra);
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
         }
         
         .contact-info a:hover {
             color: var(--burgundy);
+            border-bottom-color: var(--burgundy);
         }
         
         /* Footer */
@@ -350,45 +633,103 @@
             background: var(--dark-burgundy);
             color: var(--cream);
             text-align: center;
-            padding: 2rem;
-            font-size: 0.9rem;
+            padding: 2.5rem 2rem;
+            font-size: 0.95rem;
             letter-spacing: 0.1em;
         }
         
         /* Responsive Design */
         @media (max-width: 768px) {
+            header {
+                padding: 4rem 2rem 3rem;
+            }
+            
+            .profile-image {
+                width: 140px;
+                height: 140px;
+            }
+            
             header h1 {
                 font-size: 2.5rem;
             }
             
             header h2 {
                 font-size: 1rem;
+                letter-spacing: 0.2em;
             }
             
-            .about-container,
+            .header-tagline {
+                font-size: 1rem;
+            }
+            
+            .about-container h3,
+            .portfolio-container h3,
+            .experience-container h3,
+            .tools-container h3,
+            .contact-container h3 {
+                font-size: 2.2rem;
+            }
+            
+            .gallery-container h3 {
+                font-size: 2.2rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1rem;
+            }
+            
             .portfolio-grid {
                 grid-template-columns: 1fr;
             }
             
+            nav {
+                padding: 1rem;
+            }
+            
             nav a {
-                display: block;
-                margin: 0.5rem 0;
+                display: inline-block;
+                margin: 0.5rem 0.8rem;
+                font-size: 0.85rem;
             }
             
             .tools-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .lightbox-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+            
+            .lightbox-prev {
+                left: 10px;
+            }
+            
+            .lightbox-next {
+                right: 10px;
+            }
+            
+            .job {
+                padding: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>MIKAELA JUSI</h1>
-        <h2>Social Media Manager & Content Strategist</h2>
+        <div class="hero-content">
+            <img src="./BIO.JPG?v=2" alt="Mikaela Jusi" class="profile-image">
+            <h1>MIKAELA JUSI</h1>
+            <h2>Social Media Manager & Content Strategist</h2>
+            <p class="header-tagline">Bringing brands to life through strategic storytelling, creative content, and data-driven engagement</p>
+        </div>
     </header>
     
     <nav>
         <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
         <a href="#portfolio">Portfolio</a>
         <a href="#experience">Experience</a>
         <a href="#tools">Tools</a>
@@ -397,36 +738,119 @@
 
     <section id="about">
         <div class="about-container">
+            <h3>About <em>me</em></h3>
             <div class="about-text">
-                <h3>About <em>me</em></h3>
                 <p>Result-driven Social Media Manager with <strong>3+ years</strong> of experience growing engagement and brand presence for lifestyle and hospitality businesses.</p>
                 <p>Skilled in content strategy, short-form video production, and community building. Experienced in managing content calendars, analytics reporting, and brand voice development across multiple platforms.</p>
                 <p>My journey combines creative expertise from pastry arts with data-driven social media strategy, bringing a unique visual perspective to digital storytelling.</p>
             </div>
-            <div class="image-grid">
-                <img src="matchadonut.jpg" alt="Matcha donut content">
-                <img src="donut3.jpg" alt="Donut photography">
-                <img src="sprinkle_donut.jpg" alt="Sprinkle donut content">
-                <img src="matcha_donut_2.jpg" alt="Food photography">
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="gallery-container">
+            <h3>Creative Gallery</h3>
+            <div class="gallery-tabs">
+                <button class="gallery-tab active" data-category="all">All Work</button>
+                <button class="gallery-tab" data-category="dance">Dance Studio</button>
+                <button class="gallery-tab" data-category="food">Food Content</button>
+            </div>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- UDEC Pictures -->
+                <div class="gallery-item" data-category="dance" data-index="0">
+                    <img src="model_picture_1.jpg" alt="Underground Dance Centre - Model Photography 1">
+                    <div class="gallery-item-overlay">
+                        <p>Underground Dance Centre</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="dance" data-index="1">
+                    <img src="model_picture_2.jpg" alt="Underground Dance Centre - Model Photography 2">
+                    <div class="gallery-item-overlay">
+                        <p>Underground Dance Centre</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="dance" data-index="2">
+                    <img src="model_picture_two.jpg" alt="Underground Dance Centre - Model Photography 3">
+                    <div class="gallery-item-overlay">
+                        <p>Underground Dance Centre</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="dance" data-index="3">
+                    <img src="instagram_page_overview.PNG" alt="Instagram Management Overview">
+                    <div class="gallery-item-overlay">
+                        <p>Instagram Management</p>
+                    </div>
+                </div>
+                <!-- Donut Pictures -->
+                <div class="gallery-item" data-category="food" data-index="4">
+                    <img src="Donut1.JPG" alt="Unholy Donuts - Content Creation 1">
+                    <div class="gallery-item-overlay">
+                        <p>Unholy Donuts</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="food" data-index="5">
+                    <img src="matchadonut.jpg" alt="Matcha Donut Photography">
+                    <div class="gallery-item-overlay">
+                        <p>Product Photography</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="food" data-index="6">
+                    <img src="sprinkle_donut.jpg" alt="Sprinkle Donut Content">
+                    <div class="gallery-item-overlay">
+                        <p>Brand Content</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="food" data-index="7">
+                    <img src="donut3.jpg" alt="Donut Photography 3">
+                    <div class="gallery-item-overlay">
+                        <p>Food Content</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="food" data-index="8">
+                    <img src="matcha_donut_2.jpg" alt="Matcha Donut 2">
+                    <div class="gallery-item-overlay">
+                        <p>Visual Content</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose">&times;</button>
+            <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8249;</button>
+            <img src="" alt="" id="lightboxImg">
+            <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8250;</button>
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+    </div>
+
     <section id="portfolio">
         <div class="portfolio-container">
-            <h3>My Portfolio</h3>
+            <h3>Featured Work</h3>
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <img src="Donut1.JPG" alt="Content creation 1">
-                    <div class="portfolio-caption">Content Strategy</div>
+                    <img src="instagram_page_overview.PNG" alt="Instagram page management">
+                    <div class="portfolio-caption">
+                        <h4>Social Media Management</h4>
+                        <p>Full-service Instagram management including content strategy, posting schedule, and engagement growth</p>
+                    </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="matchadonut.jpg" alt="Content creation 2">
-                    <div class="portfolio-caption">Product Photography</div>
+                    <img src="model_picture_1.jpg" alt="Dance studio content">
+                    <div class="portfolio-caption">
+                        <h4>Content Creation</h4>
+                        <p>Professional photo and video content for The Underground Dance Centre's social platforms</p>
+                    </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="sprinkle_donut.jpg" alt="Content creation 3">
-                    <div class="portfolio-caption">Brand Visuals</div>
+                    <img src="matchadonut.jpg" alt="Food photography">
+                    <div class="portfolio-caption">
+                        <h4>Brand Photography</h4>
+                        <p>Eye-catching product photography that drives engagement and foot traffic for Unholy Donuts</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -438,7 +862,7 @@
             
             <div class="job">
                 <h4>The Underground Dance Centre</h4>
-                <p style="color: #666; margin-bottom: 1rem;"><em>Jan 2024 - May 2025</em></p>
+                <p class="job-date">Jan 2024 - May 2025</p>
                 <ul>
                     <li>Managed multi-platform content strategy for Instagram, TikTok, Facebook and Google</li>
                     <li>Increased Instagram engagement by 12% in six months through video optimization</li>
@@ -449,7 +873,7 @@
             
             <div class="job">
                 <h4>Unholy Donuts</h4>
-                <p style="color: #666; margin-bottom: 1rem;"><em>Oct 2022 - Dec 2024</em></p>
+                <p class="job-date">Oct 2022 - Dec 2024</p>
                 <ul>
                     <li>Executed social strategy during multi-location expansion across GTA</li>
                     <li>Coordinated influencer partnerships and product launches</li>
@@ -460,7 +884,7 @@
             
             <div class="job">
                 <h4>Freelance Social Media Management</h4>
-                <p style="color: #666; margin-bottom: 1rem;"><em>Jan 2025 - Present</em></p>
+                <p class="job-date">Jan 2025 - Present</p>
                 <ul>
                     <li>Provided content strategy and marketing plans for Toronto businesses</li>
                     <li>Handled copywriting, website sales setup, and event volunteer coordination</li>
@@ -471,7 +895,7 @@
             <h3 style="margin-top: 3rem;">Education</h3>
             <div class="job">
                 <h4>Diploma in Baking and Pastry Arts Management</h4>
-                <p style="color: #666;"><em>George Brown College | 2018 - 2021</em></p>
+                <p class="job-date">George Brown College | 2018 - 2021</p>
             </div>
         </div>
     </section>
@@ -511,5 +935,119 @@
     <footer>
         &copy; 2026 Mikaela Jusi. Crafted with passion & precision.
     </footer>
+
+    <script>
+        // Gallery Filtering
+        const galleryTabs = document.querySelectorAll('.gallery-tab');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        galleryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const category = tab.getAttribute('data-category');
+                
+                // Update active tab
+                galleryTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Filter gallery items
+                galleryItems.forEach(item => {
+                    const itemCategory = item.getAttribute('data-category');
+                    if (category === 'all' || itemCategory === category) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+        
+        // Lightbox Functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
+        
+        let currentImageIndex = 0;
+        let visibleImages = [];
+        
+        function updateVisibleImages() {
+            visibleImages = Array.from(galleryItems).filter(item => {
+                return window.getComputedStyle(item).display !== 'none';
+            });
+        }
+        
+        function openLightbox(index) {
+            updateVisibleImages();
+            currentImageIndex = index;
+            const item = visibleImages[currentImageIndex];
+            const img = item.querySelector('img');
+            const caption = item.querySelector('.gallery-item-overlay p');
+            
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightboxCaption.textContent = caption ? caption.textContent : img.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function showPrevImage() {
+            currentImageIndex = (currentImageIndex - 1 + visibleImages.length) % visibleImages.length;
+            openLightbox(currentImageIndex);
+        }
+        
+        function showNextImage() {
+            currentImageIndex = (currentImageIndex + 1) % visibleImages.length;
+            openLightbox(currentImageIndex);
+        }
+        
+        // Event Listeners
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                updateVisibleImages();
+                const visibleIndex = visibleImages.indexOf(item);
+                openLightbox(visibleIndex);
+            });
+        });
+        
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', showPrevImage);
+        lightboxNext.addEventListener('click', showNextImage);
+        
+        // Close lightbox on background click
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') showPrevImage();
+            if (e.key === 'ArrowRight') showNextImage();
+        });
+        
+        // Initialize gallery items with transition
+        galleryItems.forEach(item => {
+            item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        });
+    </script>
 </body>
 </html>
