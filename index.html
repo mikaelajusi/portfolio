@@ -301,7 +301,7 @@
         }
         .folders-row {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
             max-width: 1280px;
             margin: 0 auto;
@@ -1827,7 +1827,7 @@
                 <div class="exp-folder-info">
                     <p class="exp-folder-label">The Underground Dance Centre</p>
                     <p class="exp-folder-role">Social Media Manager &amp; Asst. Facility Manager</p>
-                    <p class="exp-folder-dates">Jan 2024 – May 2025</p>
+                    <p class="exp-folder-dates">Jan 2024 to Present</p>
                     <button class="exp-folder-open-btn">Open folder <span class="btn-arrow">›</span></button>
                 </div>
             </div>
@@ -1844,12 +1844,24 @@
                 </div>
             </div>
         </div>
+        <div class="exp-folder" id="folder-4" onclick="toggleFolder('4')">
+            <div class="exp-folder-tab">🗂 Personal Content</div>
+            <div class="exp-folder-body">
+                <img class="exp-folder-cover" src="./Personal Content Cover.jpg" alt="Personal Content">
+                <div class="exp-folder-info">
+                    <p class="exp-folder-label">Personal Content</p>
+                    <p class="exp-folder-role">Creator &amp; Storyteller</p>
+                    <p class="exp-folder-dates">2022 – Present</p>
+                    <button class="exp-folder-open-btn">Open folder <span class="btn-arrow">›</span></button>
+                </div>
+            </div>
+        </div>
         <div class="exp-folder" id="folder-3" onclick="toggleFolder('3')">
             <div class="exp-folder-tab">🗂 Freelance Work</div>
             <div class="exp-folder-body">
                 <img class="exp-folder-cover" src="./Announcement_Grid.jpeg" alt="Freelance Work and Personal Content">
                 <div class="exp-folder-info">
-                    <p class="exp-folder-label">Freelance Work and Personal Content</p>
+                    <p class="exp-folder-label">Freelance Work</p>
                     <p class="exp-folder-role">Social Media Strategist &amp; Content Creator</p>
                     <p class="exp-folder-dates">2022 – Present</p>
                     <button class="exp-folder-open-btn">Open folder <span class="btn-arrow">›</span></button>
@@ -1862,7 +1874,7 @@
             <div class="panel-inner">
                 <div class="panel-text">
                     <h3>The Underground Dance Centre</h3>
-                    <p class="panel-company">Toronto &middot; Jan 2024 – May 2025</p>
+                    <p class="panel-company">Toronto &middot; Jan 2024 to Present</p>
                     <div class="panel-social-links">
                         <a href="https://www.theundergrounddance.com/" target="_blank" rel="noopener noreferrer" class="panel-social-link website">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -1887,7 +1899,7 @@
                         <li>Developed multi-platform content strategy across Instagram, TikTok, Facebook &amp; Google aligned with program launches.</li>
                         <li>Increased Instagram engagement by <strong>12%</strong> in 6 months through short-form video optimisation.</li>
                         <li>Spearheaded 6-week campaign driving a <strong>14% increase</strong> in sign-ups.</li>
-                        <li>Launched merchandise campaign — product photography, video shoots &amp; launch assets.</li>
+                        <li>Managed merchandise launch strategy, including campaign development, promotional rollout, and Shopify integration.</li>
                         <li>Launched and optimised Meta ad campaigns, monitoring KPIs and ad spend.</li>
                     </ul>
                     <p class="media-label">Media files</p>
@@ -2002,25 +2014,77 @@
         <div class="exp-folder-panel" id="panel-3">
             <div class="panel-inner">
                 <div class="panel-text">
-                    <h3>Freelance Work and Personal Content</h3>
-                    <p class="panel-company">Various Clients &middot; 2022 – Present</p>
+                    <h3>Freelance Work</h3>
+                    <p class="panel-company">Various Clients &middot; 2025 – Present</p>
+                    <div class="panel-social-links">
+                        <a href="https://www.tickettailor.com/events/30shadesofbrianne/1537783?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnE3NPll9aF_Mala4nRN3MHAGqncYaaTo2MrkeMx_AU3_Hae6UkKXfTplKckQ_aem_DPIBfy0TOLHCdGqql1cdmQ" target="_blank" rel="noopener noreferrer" class="panel-social-link website">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                            </svg>
+                            Event Website
+                        </a>
+                        <a href="https://www.instagram.com/30shadesofbrianne/?hl=en" target="_blank" rel="noopener noreferrer" class="panel-social-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                            @30shadesofbrianne
+                        </a>
+                    </div>
                     <ul class="panel-bullets">
                         <li>Delivered social media strategy and content creation for clients across lifestyle, events &amp; hospitality.</li>
                         <li>Managed end-to-end campaigns: briefing, creative direction, production, scheduling &amp; reporting.</li>
-                        <li>Produced promotional content including graphics, announcements, and ticket sales campaigns.</li>
-                        <li>Created featured content showcasing performances, events, and brand highlights.</li>
                     </ul>
                     <p class="media-label">Media files</p>
                     <div class="sub-folders">
                         <div class="sub-folder" onclick="openModal('freelanceEventModal')"><div class="sf-icon"><div class="sf-tab"></div><div class="sf-body"><div class="sf-lines"><div class="sf-line"></div><div class="sf-line"></div></div></div></div><span class="sub-folder-name">Event content</span></div>
-                        <div class="sub-folder" onclick="openModal('freelancePromosModal')"><div class="sf-icon"><div class="sf-tab"></div><div class="sf-body"><div class="sf-lines"><div class="sf-line"></div><div class="sf-line"></div></div></div></div><span class="sub-folder-name">Personal Content</span></div>
                     </div>
                 </div>
                 <div class="panel-photos-split">
                     <div class="panel-videos-group">
                         <div class="video-container">
                             <div class="panel-photo-large">
-                                <video src="https://res.cloudinary.com/dh1wa7cyx/video/upload/v1772669287/Moving_Series_Ep.1_nqea6b.mov" autoplay muted loop playsinline></video>
+                                <img src="./Event Profile.jpg" alt="Event Profile" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                        </div>
+                        <div class="video-container">
+                            <div class="panel-photo-large">
+                                <img src="./Event Caption.jpg" alt="Event Caption" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="exp-folder-panel" id="panel-4">
+            <div class="panel-inner">
+                <div class="panel-text">
+                    <h3>Personal Content</h3>
+                    <p class="panel-company">Personal Projects &middot; 2022 – Present</p>
+                    <div class="panel-social-links">
+                        <a href="https://www.tiktok.com/@madebymikaelaa" target="_blank" rel="noopener noreferrer" class="panel-social-link">
+                            <svg viewBox="0 0 448 512" fill="currentColor">
+                                <path d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25v178.72A162.55 162.55 0 1 1 185 188.31v89.89a74.62 74.62 0 1 0 52.23 71.18V0h88a121.18 121.18 0 0 0 1.86 22.17A122.18 122.18 0 0 0 381 102.39a121.43 121.43 0 0 0 67 20.14z"/>
+                            </svg>
+                            @madebymikaelaa
+                        </a>
+                        <a href="https://www.tiktok.com/@kylie_jusi?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="panel-social-link">
+                            <svg viewBox="0 0 448 512" fill="currentColor">
+                                <path d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25v178.72A162.55 162.55 0 1 1 185 188.31v89.89a74.62 74.62 0 1 0 52.23 71.18V0h88a121.18 121.18 0 0 0 1.86 22.17A122.18 122.18 0 0 0 381 102.39a121.43 121.43 0 0 0 67 20.14z"/>
+                            </svg>
+                            @kylie_jusi
+                        </a>
+                    </div>
+                    <ul class="panel-bullets">
+                        <li>Creative storytelling through short-form video content exploring life transitions and experiences.</li>
+                        <li>Building authentic connections with audience through relatable, trend-driven narratives.</li>
+                        <li>Documenting personal journey and growth through visual media.</li>
+                    </ul>
+                </div>
+                <div class="panel-photos-split">
+                    <div class="panel-videos-group">
+                        <div class="video-container">
+                            <div class="panel-photo-large">
+                                <video src="https://res.cloudinary.com/dh1wa7cyx/video/upload/v1772669287/Moving_Series_Ep.1_nqea6b.mov" autoplay muted loop playsinline controls></video>
                             </div>
                             <div class="video-caption">
                                 <svg viewBox="0 0 448 512" fill="currentColor">
@@ -2031,7 +2095,7 @@
                         </div>
                         <div class="video-container">
                             <div class="panel-photo-large">
-                                <video src="https://res.cloudinary.com/dh1wa7cyx/video/upload/v1772662774/Personal_35k_Views_mfcyps.mp4" autoplay muted loop playsinline></video>
+                                <video src="https://res.cloudinary.com/dh1wa7cyx/video/upload/v1772662774/Personal_35k_Views_mfcyps.mp4" autoplay muted loop playsinline controls></video>
                             </div>
                             <div class="video-caption">
                                 <svg viewBox="0 0 448 512" fill="currentColor">
@@ -2040,11 +2104,6 @@
                                 <span>Personal Content - 35k Views</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="panel-photos-stack">
-                        <div class="panel-photo-stacked"><img src="./Featured Choreos.jpeg" alt="Featured Choreos"></div>
-                        <div class="panel-photo-stacked"><img src="./Teaser_Grid.jpg" alt="Teaser"></div>
-                        <div class="panel-photo-stacked"><img src="./TicketsforSale_Grid.jpeg" alt="Tickets"></div>
                     </div>
                 </div>
             </div>
@@ -2372,7 +2431,7 @@
 
     <div class="timeline">
         <div class="exp-card fade-in">
-            <div class="exp-date">Jan 2024 – May 2025</div>
+            <div class="exp-date">Jan 2024 to Present</div>
             <div class="exp-content">
                 <h3>Social Media Manager &amp; Asst. Facility Manager</h3>
                 <div class="exp-company">The Underground Dance Centre · Toronto</div>
@@ -2488,7 +2547,7 @@
     <div class="contact-links">
         <a href="mailto:madebymikaelaa@gmail.com" class="contact-link primary">✉️ madebymikaelaa@gmail.com</a>
         <a href="tel:+16474465404" class="contact-link">📞 (647) 446-5404</a>
-        <a href="https://linkedin.com" target="_blank" class="contact-link">💼 LinkedIn</a>
+        <a href="https://www.linkedin.com/in/mikaela-jusi-a91481272/" target="_blank" class="contact-link">💼 LinkedIn</a>
     </div>
 </section>
 
